@@ -43,7 +43,7 @@ sudo apt-get install p7zip-full -qq
 test ! -d redis/ && git clone https://github.com/antirez/redis.git
 pushd redis/
 git checkout 5.0
-make
+make -j 4
 popd
 
 # Faup
@@ -71,14 +71,14 @@ popd
 test ! -d pgpdump && git clone https://github.com/kazu-yamamoto/pgpdump.git
 pushd pgpdump/
 ./configure
-make
+make -j 4
 sudo make install
 popd
 
 # ARDB #
 test ! -d ardb/ && git clone https://github.com/yinqiwen/ardb.git
 pushd ardb/
-make
+make -j 4
 popd
 
 if [ ! -f configs/core.cfg ]; then
