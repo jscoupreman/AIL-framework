@@ -51,7 +51,7 @@ test ! -d faup/ && git clone https://github.com/stricaud/faup.git
 pushd faup/
 test ! -d build && mkdir build
 cd build
-cmake .. && make
+cmake .. && make -j 4
 sudo make install
 echo '/usr/local/lib' | sudo tee -a /etc/ld.so.conf.d/faup.conf
 sudo ldconfig
